@@ -1,0 +1,54 @@
+{% extends "nav.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="result"></div>
+        </div>
+        <div class="row text-center">
+            <h1 class="text-uppercase">Items in  Catalog: <strong >{{currentCatName.catalog_name}}</strong></h1>
+            <a href="items/newitem">
+                <button class="btn btn-primary left-block"> Add New Item</button>
+            </a>
+            <hr> </div>
+        <div class="row text-center text-uppercase">
+            <div class="flashes"> {% for message in get_flashed_messages() %}
+                <div class="alert alert-info alert-dismissable fade in"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>{{ message }}</strong>. </div>
+
+                  {% endfor %} </div>
+
+                {% for list in currentItems %}
+            <!-- Modal -->
+            <div class="modal fade" id="myModal-{{list.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteTitle">Delete Confirmation:</h5>
+                        </div>
+                        <div class="modal-body"> Are you sure you want to delete <strong>{{list.item_name}}</strong>?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a id="delete" href="/catalog/{{list.catalog_id}}/item/{{list.id}}/delete">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Modal -->
+            <div class="col-md-4 col-lg-6 col-sm-12">
+                <h2><strong>{{list.item_name}}</strong>
+        </h2>
+                <a href="/catalog/{{list.catalog_id}}/item/{{list.id}}"> <img class="image img-fluid img-thumbnail" src="{{list.item_image}}" alt="pic"> </a>
+                <br>
+                <div class="row"> <img src="{{list.user.user_image}}" class="img-circle" width="50px" height="50px" alt="">
+                   {% if 'username' in session %}
+                    <a href="/catalog/{{list.catalog_id}}/item/{{list.id}}/edit">
+                        <button type="button" class="btn btn-warning btn-xs">Edit</button>
+                    </a>
+                    <button id="dlete" type="button" class="btn btn-danger btn-xs" data-delete="/catalog/{{list.catalog_id}}/item/{{list.id}}/delete" data-toggle="modal" data-target="#myModal-{{list.id}}"> Delete</button>
+                    {% endif %}
+                </div>
+            </div> {% endfor %} </div>
+    </div>
+</div> {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "nav.html" %} {% block content %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="" method="POST" role="form">
+            <legend class="text-center">Create New Catalog</legend>
+            <div class="form-group">
+                <label for="">Catalog Name</label>
+                <input type="text" name="name" class="form-control" id="catalog_name" placeholder="Input Catalog Name">
+                <label for="">Catalog Image</label>
+                <input type="text" name="image" class="form-control" id="catalog_image" placeholder="input url of Catalog image"> </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="col-md-12">
+    <hr> </div>
+<div class="row text-center">
+    <h1>Catalogs Already Added</h1> </div>
+<div class="row text-center"> {% for list in catalog %}
+    <div class="col-md-4">
+        <h3>{{list.catalog_name}}</h3>
+        <a href="/catalog/{{list.id}}/items"><img class="image img-fluid img-thumbnail" src="{{list.catalog_image}}" alt="pic"></a>
+    </div> {% endfor %} </div>
+<div class="row">
+    <div class="col-md-12">
+        <hr> </div>
+</div> {% endblock %}

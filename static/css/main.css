@@ -1,0 +1,101 @@
+ body {
+     margin-bottom: 0px;
+     color: #000;
+     background-color: #999797;
+     font-family: 'Old Standard TT', serif;
+     width: 100%;     
+     height: 100%;
+     
+ }
+ 
+ .image {
+     width: 360px;
+     height: 250px;
+ }
+ 
+pre {
+  font-family: sans-serif, helvetica, arial;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+ .sidenav {
+     height: 100%;
+     width: 0;
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     background-color: #111;
+     overflow-x: hidden;
+     -webkit-transition: 0.5s;
+     transition: 0.5s;
+     padding-top: 60px;
+ }
+ 
+ .sidenav a {
+     padding: 8px 8px 8px 32px;
+     text-decoration: none;
+     font-size: 25px;
+     color: #818181;
+     display: block;
+     -webkit-transition: 0.3s;
+     transition: 0.3s;
+ }
+ 
+ .sidenav a:hover,
+ .offcanvas a:focus {
+     color: #f1f1f1;
+ }
+ 
+ .sidenav .closebtn {
+     position: absolute;
+     top: 0;
+     right: 25px;
+     font-size: 36px;
+     margin-left: 50px;
+ }
+ 
+ #main {
+     -webkit-transition: margin-left .5s;
+     transition: margin-left .5s;
+     padding: 16px;
+ }
+ 
+ .jumbotron-billboard .img {
+     margin-bottom: 0px;
+     opacity: 0.2;
+     color: #fff;
+     background: #000 url("http://biblioteca.uml.edu.ni/wp-content/uploads/2015/02/Impresionantes-fondos-abstractos-12.jpg") center center;
+     width: 100%;
+     height: 100%;
+     background-size: cover;
+     overflow: hidden;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 1;
+ }
+ 
+ .jumbotron {
+     position: relative;
+     padding: 50px;
+ }
+ 
+ .jumbotron .container {
+     z-index: 2;
+     position: relative;
+     z-index: 2;
+ }
+ 
+ @media screen and (max-height: 450px) {
+     .sidenav {
+         padding-top: 15px;
+     }
+     .sidenav a {
+         font-size: 18px;
+     }
+ }

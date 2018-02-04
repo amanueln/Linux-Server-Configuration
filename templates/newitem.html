@@ -1,0 +1,48 @@
+{% extends "nav.html" %} {% block content %}
+
+<div class="row text-uppercase">
+    <div class="col-md-4 col-md-offset-4" >
+        <form action="" method="POST" role="form">
+        <div class="flashes">
+  {% for message in get_flashed_messages() %}
+   <div class="alert alert-info alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{ message }}</strong>.
+  </div>
+  {% endfor %}
+</div>
+	<legend class="text-center">Create New Item in Catalog: <strong>{{currentCatName.catalog_name}}</strong></legend>
+
+	<div class="form-group">
+		<label for="itemName">Item Name</label>
+		<input type="text" name="name" class="form-control" id="item_name" placeholder="Input item Name">
+		<label for="itemImage">Item Image</label>
+		<input type="text" name="image" class="form-control" id="item_image" placeholder="Default Image or input url of item ">
+		<label for="itemTextarea">Description of Item</label>
+        <textarea class="form-control" name="description" id="item_description " placeholder="input Description of item" rows="3"></textarea>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+    </div>
+<div class="col-md-12" >
+        <hr>
+    
+</div>
+<div class="row text-center text-uppercase">
+    <h1>Items Already Added in Catalog:  <strong>{{currentCatName.catalog_name}}</strong> </h1> </div>
+    <div class="row text-center">
+{% for list in items %}
+    <div class="col-md-4">
+        <h3 class="text-uppercase">{{list.item_name}}</h3> <img class="image" src="{{list.item_image}}" alt="pic">
+         </div>
+{% endfor %}
+</div> 
+
+<div class="row">
+    <div class="col-md-12" >
+        <hr>
+    </div>
+</div>
+
+{% endblock %}

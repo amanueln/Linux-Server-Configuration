@@ -1,0 +1,32 @@
+{% extends "nav.html" %} {% block content %}
+<div class="row text-uppercase">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="" method="POST" role="form">
+            <legend class="text-center">Edit Item: <strong>{{edit_item.item_name}}</strong></legend>
+            <div class="form-group">
+                <label for="">Item Name</label>
+                <input type="text" name="name" class="form-control" id="item_name" value="{{edit_item.item_name}}">
+                <label for="">Item Image</label>
+                <input type="text" name="image" class="form-control" id="item_image" value="{{edit_item.item_image}}">
+                <label for="Description">Description of Item</label>
+                <textarea class="form-control" name="description" id="item_description " rows="3">{{edit_item.item_detail}}</textarea>
+                <div class="form-group">
+                    <label for="Category">Category:</label>
+                    <select class="form-control text-uppercase" name="category" id="Category">
+                       <option value="{{edit_item.catalog.id}}" selected>{{edit_item.catalog.catalog_name}}</option>
+                        {% for c in category%}
+                            <option value="{{c.id}}">{{c.catalog_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="flashes">
+  {% for message in get_flashed_messages() %}
+   <div class="alert alert-info alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{ message }}</strong>.
+  </div>
+  {% endfor %}
+</div>
+        </form> {% endblock %}

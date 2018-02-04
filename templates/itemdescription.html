@@ -1,0 +1,11 @@
+{% extends "nav.html" %} {% block content %}
+<div class="container">
+<div class="col-md-12">
+  <img  class="center-block img-responsive" src="{{currentItemID.item_image}}" alt="{{currentItemID.item_name}} image">
+  <div class="col-md-12 text-center text-uppercase">
+    <h2 class="mt-0"><strong>{{currentItemID.item_name}}</strong></h2>
+    <pre>{{currentItemID.item_detail}}</pre>
+  </div>
+</div>
+{% endblock %}
+</div>
