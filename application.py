@@ -19,11 +19,16 @@ from modal import User, Base, Catalog, CatalogItem
 # Flask instance
 # ===================
 app = Flask(__name__)
-
+app.config['SESSION_TYPE'] = 'memcached'
+app.config['SECRET_KEY'] = 'x0whBu4xVmOEuW22DsD-oGMP'
+app.jinja_env.auto_reload = True
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 # ===================
 # DB
 # ===================
-engine = create_engine('sqlite:///item_catalog.db')
+#engine = create_engine('sqlite:///item_catalog.db')
+engine = create_engine('sqlite:///item_catalog.db', connect_args={'check_same_thread': False}, echo=True)
+
 # Bind the engine to the metadata of the Base class so that the
 # declaratives can be accessed through a DBSession instance
 Base.metadata.bind = engine
@@ -47,8 +52,8 @@ session = DBSession()
 # ===================
 
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
-
+    open('/home/vagrant/catalogs/client_secrets.json', 'r').read())['web']['client_id']
+#CLIENT_ID ="511831985000-ajei5g0aca2kdfub44j3jehronk8mvop.apps.googleusercontent.com"
 
 # handles login by creating a state for google sign in
 @app.route("/login")
@@ -77,7 +82,7 @@ def gconnect():
     code = request.data
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/home/vagrant/catalogs/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -572,9 +577,5 @@ def categoryItemsJSON(catalog_id):
 # End JSON
 # ===================
 
-if __name__ == '__main__':
-    app.config['SESSION_TYPE'] = 'memcached'
-    app.config['SECRET_KEY'] = 'super secret key'
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(debug=True, host='0.0.0.0', port=8080)
+#if __name__ == '__main__':
+#    app.run(debug=True, host='0.0.0.0', port=8080)
