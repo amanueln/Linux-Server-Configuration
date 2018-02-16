@@ -2,11 +2,11 @@
 Udacity Full Stack Web Developer Nanodegree Project : Linux Server Configuration
 
 ## IP address and SSH port
-* Public IP : ~18.216.240.252~
+* Public IP : ~34.201.42.231~
 * SSH port : ~2200~
 
 ## Complete URL to hosted web application
-~http://ec2-18-216-240-252.us-east-2.compute.amazonaws.com/~
+~http://34.201.42.231.xip.io/~
 
 
 ## About
@@ -55,14 +55,18 @@ ssh-keygen
 ```
 
 ```bash
-sudo mkdir /home/grader/.ssh
-sudo chown grader:grader /home/grader/.ssh # changing ownership of .ssh to grader
-sudo chmod 700 /home/grader/.ssh           # change folder permission
-sudo cp /home/ubuntu/.ssh/authorized_keys /home/grader/.ssh/
-sudo chmod 644 /home/grader/.ssh/authorized_keys
+cd ~ # takes you to your home directory /home/grader
+sudo mkdir .ssh   # Directory where you will later store your public key.
+sudo chown grader:grader .ssh # changing ownership of .ssh to grader
+sudo chmod 700 .ssh           # change folder permission
+sudo touch /.ssh/authorized_keys #creates a file to put your public key in.
+sudo chmod 644 /.ssh/authorized_keys #change file permission
 ```
 
 ```bash
+#Setup your shh on your choise of ssh platform exp.putty
+~http://34.201.42.231.xip.io/~ # link to setup shh with using private key on putty.
+
 ssh grader@18.216.240.252 -p 2200 -i grader
 ```
 
