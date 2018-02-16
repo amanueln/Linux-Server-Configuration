@@ -8,30 +8,30 @@
     <div class="row text-center text-uppercase">
        <div class="col-md-12">
         <h1>Latest Catagories Added </h1>
-        <hr> 
+        <hr>
         </div>
         </div>
     <div class="row text-center">
-        <div class="flashes"> 
+        <div class="flashes">
            {% for message in get_flashed_messages() %}
-            <div class="alert alert-info alert-dismissable fade in"> 
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
-            <strong>{{ message }}.</strong> 
-            </div> 
-            {% endfor %} 
-            </div> 
-            
+            <div class="alert alert-info alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ message }}.</strong>
+            </div>
+            {% endfor %}
+            </div>
+
             {% for list in catalog %}
         <div class="col-md-4 col-lg-6 col-sm-12">
             <h2 class="text-uppercase"><strong>{{list.catalog_name}}</strong></h2>
             <hr>
-            <a href="/catalog/{{list.id}}/items"><img class="image img-fluid img-thumbnail" src="{{list.catalog_image}}" alt="{{list.catalog_name}} Catalog Pic" height="360px" width="500px"></a><br>
+            <a href="/catalog/{{list.id}}/items"><img class="image_catalog img-fluid img-thumbnail" src="{{list.catalog_image}}" alt="{{list.catalog_name}} Catalog Pic" height="360px" width="500px"></a><br>
             {% if 'username' in session  %}
              <a href="/catalog/{{list.id}}/delete">
-             <button type="button" 
+             <button type="button"
              class="btn btn-danger btn-sm">Delete</button></a>
              {% endif %}
-            <hr> </div> {% endfor %} 
+            <hr> </div> {% endfor %}
     </div>
-</div> 
+</div>
 {% endblock %}
