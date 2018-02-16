@@ -26,13 +26,18 @@ sudo apt upgrade    # upgrade installed packages
 sudo apt autoremove # automatically remove packages that are no longer required
 ```
 ### Create a New User `grader` and give `grader` sudo
-
+ - Log in to your server as the root user.
 ```bash
 sudo adduser grader # create a new user named grader
 # grader password is 'udacity'
 # use the usermod command to add the user to the sudo group
 # https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
 sudo usermod -aG sudo grader
+# test new user can use sudo
+# Login as Grader
+su - grader
+sudo ls -la /root  # will be prompt for password only one time.
+# if working you can list the content of /root directory.
 ```
 
 ### Change the SSH port from 22 to 2200.
