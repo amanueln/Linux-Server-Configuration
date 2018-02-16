@@ -30,7 +30,7 @@ The Flask application uses stored HTML templates in the tempaltes folder to buil
 
 ## Summary of software installed and installation instruction.
 
-### Setup Your Amazon Light sail account and creat a ununtu 16.04 virtual machine.
+### Setup Your Amazon Light sail account and creat a ubuntu 16.04 virtual machine.
 - https://lightsail.aws.amazon.com/ls/webapp/home/instances
 - SSh into our virtual machine 
 
@@ -97,9 +97,9 @@ sudo chmod 644 /.ssh/authorized_keys #change file permission
 
 ```bash
 # Setup your shh, on your choice of ssh platform like Putty.
-~ https://devops.profitbricks.com/tutorials/use-ssh-keys-with-putty-on-windows/ ~ # link to setup shh with using private key on putty.
+https://devops.profitbricks.com/tutorials/use-ssh-keys-with-putty-on-windows/ # link to setup shh with using private key on putty.
 
-   grader@34.201.42.231 port:2200  
+   grader@34.201.42.231 port:2200  # grader ssh address and port.
 ```
 
 ### Disable root
@@ -119,6 +119,7 @@ sudo timedatectl set-timezone UTC
 ```bash
 sudo apt install apache2                  # install apache- A Web server
 - If done right go to the public ip address of your lightsail and you should see apache default page.
+
 sudo apt-get install libapache2-mod-wsgi  # install python 2.7 mod_wsgi
 ```
 
