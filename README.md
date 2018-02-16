@@ -190,8 +190,9 @@ sudo nano FlaskApp.conf
 </VirtualHost>
 ```
 ### Permissions problems with /var/www/html and my own home directory for a website document root fix
+# Refer to: 
+# https://askubuntu.com/questions/767504/permissions-problems-with-var-www-html-and-my-own-home-directory-for-a-website
 ```
-# Refer to: https://askubuntu.com/questions/767504/permissions-problems-with-var-www-html-and-my-own-home-directory-for-a-website
 in order for wsgi and conf to work together. you need to fix permission issie and allow www-data access to you applications folders.
 ```
 
@@ -218,7 +219,7 @@ sudo pip2 install flask packaging oauth2client redis passlib flask-httpauth
 *Optional step(s)
 
 ## Using Google Login:
-# if issue with logn:
+# if issue with login:
 To get the Google login working there are a few additional steps:
 
 1. Go to [Google Dev Console](https://console.developers.google.com)
