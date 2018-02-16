@@ -20,15 +20,15 @@ from modal import User, Base, Catalog, CatalogItem
 # ===================
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'memcached'
-app.config['SECRET_KEY'] = 'x0whBu4xVmOEuW22DsD-oGMP'
+app.config['SECRET_KEY'] = 'HefPxHO3-_ayi2fFUmIcniVk'
 app.jinja_env.auto_reload = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 # ===================
 # DB
 # ===================
 #engine = create_engine('sqlite:///item_catalog.db')
-engine = create_engine('sqlite:///item_catalog.db', connect_args={'check_same_thread': False}, echo=True)
-
+#engine = create_engine('sqlite:///item_catalog.db', connect_args={'check_same_thread': False}, echo=True)
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 # Bind the engine to the metadata of the Base class so that the
 # declaratives can be accessed through a DBSession instance
 Base.metadata.bind = engine
@@ -52,7 +52,7 @@ session = DBSession()
 # ===================
 
 CLIENT_ID = json.loads(
-    open('/home/vagrant/catalogs/client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/catalogs/client_secrets.json', 'r').read())['web']['client_id']
 #CLIENT_ID ="511831985000-ajei5g0aca2kdfub44j3jehronk8mvop.apps.googleusercontent.com"
 
 # handles login by creating a state for google sign in
@@ -82,7 +82,7 @@ def gconnect():
     code = request.data
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('/home/vagrant/catalogs/client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/catalogs/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -171,22 +171,14 @@ def gdisconnect():
         flash(message)
         return redirect(url_for('home'))
 
-    url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' \
-          % login_session['access_token']
-    h = httplib2.Http()
-    result = h.request(url, 'GET')[0]
-    if result['status'] == '200':
+    else:
         del login_session['access_token']
         del login_session['gplus_id']
         del login_session['username']
         del login_session['email']
         del login_session['picture']
-        message = 'Successfully disconnected.'
-        flash(message)
-        return redirect(url_for('home'))
 
-    else:
-        message = 'Failed to revoke token for given user.'
+        message = 'Your Token has Expired, You have successfully logged out!!'
 
         flash(message)
         return redirect(url_for('home'))
