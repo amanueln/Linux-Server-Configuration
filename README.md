@@ -189,6 +189,11 @@ sudo nano FlaskApp.conf
 
 </VirtualHost>
 ```
+### Permissions problems with /var/www/html and my own home directory for a website document root fix
+```
+# Refer to: https://askubuntu.com/questions/767504/permissions-problems-with-var-www-html-and-my-own-home-directory-for-a-website
+in order for wsgi and conf to work together. you need to fix permission issie and allow www-data access to you applications folders.
+```
 
 ### Install Flask and dependencies
 ```bash
@@ -198,12 +203,13 @@ sudo pip2 install sqlalchemy flask-sqlalchemy psycopg2 bleach requests
 sudo pip2 install flask packaging oauth2client redis passlib flask-httpauth
 ```
 
-### If any issues check your developer consule and Apache2 erro log
+### If any issues check your developer console and Apache2 error log.
 # sudo cat /var/log/apache2/error.log
 
 
 ## Dependencies
 - [Putty](https://devops.profitbricks.com/tutorials/use-ssh-keys-with-putty-on-windows/)
+- [Permissions problems](https://askubuntu.com/questions/767504/permissions-problems-with-var-www-html-and-my-own-home-directory-for-a-website)
 - [Amazon Lightsail](https://lightsail.aws.amazon.com)
 - [Udacity forum Help](https://discussions.udacity.com/t/linux-server-configuration-amazon-lightsail-localhost-setup/583077)
 - [Google Cloud platform](https://console.cloud.google.com/home/dashboard?project=my-project-1501372871219)
