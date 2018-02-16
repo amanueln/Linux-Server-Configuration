@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Item Catalog Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Righteous|Rubik+Mono+One|Russo+One" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Righteous|Rubik+Mono+One|Russo+One" rel="stylesheet">
     <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//apis.google.com/js/platform.js?onload=start"></script>
@@ -18,20 +18,20 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn t work if you view the page via file:// -->
     <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+                        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <![endif]-->
     <style>
 
     </style>
 </head>
 <body>
-    
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">         
-                <div id="mySidenav" class="sidenav"> 
-                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
+            <div class="col-md-12">
+                <div id="mySidenav" class="sidenav">
+                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                   {% if 'username' in session %}
                   <a href="/newcatalog"><button class="btn btn-primary left-block"> Add New Catagory</button></a>
                   {% endif %}
@@ -77,15 +77,15 @@
                                                         data-callback="signInCallback"
                                                         data-approvalprompt="force">
                                                       </span>
-                                                    </div> 
+                                                    </div>
 
-                                                    {% else %} 
+                                                    {% else %}
                                                     <div class="signIn center-block img-responsive text-center">
                                                     <img src="{{user.user_image}}" class="img-circle" width="50px" height="50px" alt="">
-                                                    <a href="/gdisconnect"><button type="button" class="btn btn-danger btn-xs">Log Out</button></a> 
+                                                    <a href="/gdisconnect"><button type="button" class="btn btn-danger btn-xs">Log Out</button></a>
 
                                                     </div>
-                                                    {% endif %} 
+                                                    {% endif %}
                     </ul>
                       <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -97,9 +97,9 @@
                 </div><!-- /.navbar-collapse -->
 </nav>
 
-                            {% block content %} 
-                            
-                            {% endblock %} 
+                            {% block content %}
+
+                            {% endblock %}
                             </div>
                     </div>
                 </div>
