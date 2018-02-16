@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String,DateTime
+from sqlalchemy import Column, ForeignKey, Integer, String,DateTime,Text
 from sqlalchemy import func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -21,8 +21,8 @@ class User(Base):
 class Catalog(Base):
     __tablename__ = 'catalog'
     id = Column(Integer, primary_key=True)
-    catalog_name = Column(String(250), nullable=False)
-    catalog_image = Column(String(250))
+    catalog_name = Column(Text, nullable=False)
+    catalog_image = Column(String(500))
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
@@ -39,10 +39,10 @@ class Catalog(Base):
 class CatalogItem(Base):
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
-    item_name = Column(String(250), nullable=False)
+    item_name = Column(Text, nullable=False)
     date = Column(DateTime(timezone=True), default=func.now())
-    item_image = Column(String(250))
-    item_detail = Column(String(500))
+    item_image = Column(Text)
+    item_detail = Column(Text)
     user_id = Column(Integer, ForeignKey('user.id'))
     catalog_id = Column(Integer, ForeignKey('catalog.id'))
     user = relationship(User)
@@ -61,9 +61,8 @@ class CatalogItem(Base):
 
 # Create an engine that stores data in the local directory's
 # sqlalchemy_example.db file.
-engine = create_engine('sqlite:///item_catalog.db')
-
+#engine = create_engine('sqlite:///item_catalog.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 # Create all tables in the engine. This is equivalent to "Create Table"
 # statements in raw SQL.
 Base.metadata.create_all(engine)
-
