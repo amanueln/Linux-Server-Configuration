@@ -12,11 +12,11 @@ Udacity Full Stack Web Developer Nanodegree Project : Linux Server Configuration
 9. Hosting Website from Scratch.
 
 ## IP address and SSH port
-* Public IP : ~34.201.42.231~
-* SSH port : ~2200~
+* Public IP : 34.201.42.231
+* SSH port : 2200
 
 ## Complete URL to hosted web application
-~http://34.201.42.231.xip.io/~
+http://34.201.42.231.xip.io/
 
 
 ## About
