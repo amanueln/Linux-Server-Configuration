@@ -193,7 +193,8 @@ sudo nano FlaskApp.conf
 # Refer to: 
 # https://askubuntu.com/questions/767504/permissions-problems-with-var-www-html-and-my-own-home-directory-for-a-website
 ```
-in order for wsgi and conf to work together. you need to fix permission issie and allow www-data access to you applications folders.
+in order for wsgi and conf to work together. you need to fix permission issue 
+and allow www-data access to you applications folders.
 ```
 
 ### Install Flask and dependencies
