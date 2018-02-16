@@ -1,5 +1,5 @@
-# Ud-FSND-LinuxServerConfiguration
-Udacity Full Stack Web Developer Nanodegree Project : Linux Server Configuration
+# Amazon LightSail-FSND-LinuxServerConfiguration
+Udacity Full Stack Web Developer Nanodegree Project : Amazon Lightsail Linux Server Configuration
 
 ## Skills Honed
 1. Python
@@ -20,7 +20,7 @@ http://34.201.42.231.xip.io/
 
 
 ## About
-This project is About How to Create Web Server from scatch and how to setup firewalls, running a  RESTful web application utilizing the Flask framework which accesses a SQL database that populates categories and their items. OAuth2 provides authentication for further CRUD functionality on the application. Currently OAuth2 is implemented for Google Accounts. This Project is Hosted on Amazon light sail.
+This project is About How to Create Web Server from scatch, and how to setup firewalls. Running a RESTful web application utilizing the Flask framework which accesses a SQL database that populates categories and their items. OAuth2 provides authentication for further CRUD functionality on the application. Currently OAuth2 is implemented for Google Accounts. This Project is Hosted on Amazon light sail.
 
 ## In This Repo
 This project has one main Python module `application.py` which runs the Flask application. A SQL database is created using the `modal.py` module and you can populate the database with test data using `filldb.py`.
